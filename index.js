@@ -1,28 +1,17 @@
 #!/usr/bin/env node
 
-const { program } = require("commander");
 const path = require("path");
 const fs = require("fs");
-const packageJson = require("./package.json");
+const { greenColor, redColor, yellowColor } = require("./util");
+const { argumentParser } = require("./argumentParser");
 
-const redColor = (message) => `\x1b[31m${message}\x1b[0m`;
-const greenColor = (message) => `\x1b[32m${message}\x1b[0m`;
-const yellowColor = (message) => `\x1b[33m${message}\x1b[0m`;
-
-program
-  .version(packageJson.version)
-  .description(packageJson.description)
-  .option("-i, --install", "Generate dependency script", false)
-  .option("-d,--dev", "Generate dev dependency script", false)
-  .parse();
-
-let { install, dev } = program.opts();
+let { install, dev } = argumentParser();
 
 if (!install && !dev) {
   install = true;
 }
 
-const currentPackageJsonPath = path.join(__dirname, "package.json");
+const currentPackageJsonPath = path.join(process.cwd(), "package.json");
 
 if (!fs.existsSync(currentPackageJsonPath)) {
   console.log(

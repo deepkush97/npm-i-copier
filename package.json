@@ -10,7 +10,5 @@
   "keywords": [],
   "author": "Deepanshu Kushwaha",
   "license": "MIT",
-  "dependencies": {
-    "commander": "^8.0.0"
-  }
+  "dependencies": {}
 }
