@@ -1,0 +1,16 @@
+{
+  "name": "npm-i-copier",
+  "version": "0.9.0",
+  "description": "A small runner to generate npm install script for given project",
+  "main": "index.js",
+  "bin": "index.js",
+  "scripts": {
+    "execute": "node index.js"
+  },
+  "keywords": [],
+  "author": "Deepanshu Kushwaha",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^8.0.0"
+  }
+}
